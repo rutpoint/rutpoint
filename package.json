@@ -1,0 +1,29 @@
+{
+  "name": "rutpoint",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean:all": "turbo run clean:build && turbo run clean:cache && turbo run clean:deps",
+    "clean:build": "turbo run clean:build",
+    "clean:cache": "turbo run clean:cache",
+    "clean:deps": "turbo run clean:deps",
+    "reset": "turbo run clean:all && pnpm install"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "prettier": "^3.5.3",
+    "turbo": "^2.4.4",
+    "typescript": "^5.8.2"
+  },
+  "packageManager": "pnpm@10.6.3"
+} 
