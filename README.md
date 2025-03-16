@@ -189,13 +189,13 @@ pnpm clean:cache        # Clean cache
 ### API Endpoints
 
 #### Taxi Ranks
-- `GET /api/v1/taxi-ranks`: List taxi ranks with optional filters
+- `GET /api/v1/transport/taxi/ranks`: List taxi ranks with optional filters
   - Query params:
     - Bounds: `ne_lat`, `ne_lng`, `sw_lat`, `sw_lng` (for map view)
     - Nearby: `lat`, `lng`, `radius` (in meters)
     - Search: `destination` (for destination-based search)
-- `GET /api/v1/taxi-ranks/:id`: Get detailed information about a specific taxi rank
-- `GET /api/v1/taxi-ranks/:id/connections`: Get connecting ranks and routes
+- `GET /api/v1/transport/taxi/ranks/:id`: Get detailed information about a specific taxi rank
+- `GET /api/v1/transport/taxi/ranks/:id/connections`: Get connecting ranks and routes
 
 #### Journey Planning (Coming Soon)
 - `POST /api/v1/journeys/plan`: Calculate multimodal journey

@@ -14,7 +14,7 @@ app.use('*', cors());
 app.get('/health', (c) => c.json({ status: 'ok' }));
 
 // Mount routes
-app.route('/api/v1/taxi-ranks', taxiRanksRouter);
+app.route('/api/v1/transport/taxi/ranks', taxiRanksRouter);
 
 // Start server
 const port = parseInt(process.env.PORT || '3000', 10);

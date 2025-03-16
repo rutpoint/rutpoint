@@ -23,7 +23,7 @@ const handleApiError = (error: any): never => {
 export class TaxiRanksApi {
   static async getWithinBounds(bounds: TaxiRank.MapBounds): Promise<TaxiRank.TaxiRank[]> {
     try {
-      const response = await backendApi.get('/api/v1/taxi-ranks', {
+      const response = await backendApi.get('/api/v1/transport/taxi/ranks', {
         params: {
           ne_lat: bounds.northeast.latitude,
           ne_lng: bounds.northeast.longitude,
@@ -40,7 +40,7 @@ export class TaxiRanksApi {
 
   static async getAllTaxiRanks(): Promise<TaxiRank.TaxiRank[]> {
     try {
-      const response = await backendApi.get('/api/v1/taxi-ranks');
+      const response = await backendApi.get('/api/v1/transport/taxi/ranks');
       return response.data.data;
     } catch (error) {
       console.error('Error fetching taxi ranks:', error);
@@ -50,7 +50,7 @@ export class TaxiRanksApi {
 
   static async searchTaxiRanks(destination: string): Promise<TaxiRank.TaxiRank[]> {
     try {
-      const response = await backendApi.get('/api/v1/taxi-ranks', {
+      const response = await backendApi.get('/api/v1/transport/taxi/ranks', {
         params: { destination: encodeURIComponent(destination) }
       });
       return response.data.data;
@@ -62,7 +62,7 @@ export class TaxiRanksApi {
 
   static async getTaxiRankById(id: string): Promise<TaxiRank.TaxiRank> {
     try {
-      const response = await backendApi.get(`/api/v1/taxi-ranks/${id}`);
+      const response = await backendApi.get(`/api/v1/transport/taxi/ranks/${id}`);
       return response.data.data;
     } catch (error) {
       console.error('Error fetching taxi rank:', error);
@@ -72,7 +72,7 @@ export class TaxiRanksApi {
 
   static async getConnectingRanks(rankId: string): Promise<TaxiRank.TaxiRankConnection[]> {
     try {
-      const response = await backendApi.get(`/api/v1/taxi-ranks/${rankId}/connections`);
+      const response = await backendApi.get(`/api/v1/transport/taxi/ranks/${rankId}/connections`);
       return response.data;
     } catch (error) {
       console.error('Error fetching connecting ranks:', error);
@@ -82,7 +82,7 @@ export class TaxiRanksApi {
 
   static async getNearby({ latitude, longitude, radius }: GetNearbyParams): Promise<TaxiRank.TaxiRank[]> {
     try {
-      const response = await backendApi.get('/api/v1/taxi-ranks', {
+      const response = await backendApi.get('/api/v1/transport/taxi/ranks', {
         params: { lat: latitude, lng: longitude, radius }
       });
       return response.data.data;
@@ -94,7 +94,7 @@ export class TaxiRanksApi {
 
   static async getRankDetails(rankId: string): Promise<TaxiRank.TaxiRank> {
     try {
-      const response = await backendApi.get(`/api/v1/taxi-ranks/${rankId}`);
+      const response = await backendApi.get(`/api/v1/transport/taxi/ranks/${rankId}`);
       return response.data.data;
     } catch (error) {
       console.error('Error fetching taxi rank details:', error);
