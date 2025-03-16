@@ -3,7 +3,7 @@ import { StyleSheet, View, TouchableOpacity, Linking, ScrollView, ViewStyle, Tex
 import { TaxiRank } from '@rutpoint/shared/src/types/taxiRank';
 import { ThemedText } from '@/components/theme/ThemedText';
 import { openNavigation } from '@/utils/navigation';
-import { NavigationAppPicker } from '@/components/map/NavigationAppPicker';
+import { NavigationAppPicker } from '@/components/domain/map/NavigationAppPicker';
 
 interface TaxiRankDetailsProps {
   rank: TaxiRank.TaxiRank;
